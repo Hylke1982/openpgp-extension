@@ -1,4 +1,12 @@
 node_modules/
+.taskkey
 
 .idea/
 *.iml
+
+
+build/
+
+tests/*.js
+tests/*.log
+

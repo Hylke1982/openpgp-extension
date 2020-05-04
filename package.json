@@ -1,0 +1,28 @@
+{
+  "name": "openpgp-tools-extension",
+  "version": "0.1.0",
+  "description": "openpgp extension for Azure DevOps",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsc tests/*.test.ts && mocha -r ts-node/register tests/**/*.test.ts"
+  },
+  "author": "Hylke Stapersma",
+  "license": "ISC",
+  "dependencies": {
+    "@types/openpgp": "^4.4.10",
+    "azure-pipelines-task-lib": "^2.9.3"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.13.4",
+    "@types/q": "^1.5.2",
+    "chai": "^4.2.0",
+    "i": "^0.3.6",
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1",
+    "sync-request": "^6.1.0",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  }
+}
