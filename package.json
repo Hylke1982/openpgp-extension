@@ -4,8 +4,8 @@
   "description": "openpgp extension for Azure DevOps",
   "main": "index.js",
   "scripts": {
-    "compile": "tsc",
-    "test": "npm run compile && tsc tests/*.ts && mocha -r ts-node/register tests/**/*.test.ts"
+    "compile": "tsc && tsc tests/*.ts",
+    "test": "npm run compile && mocha -r ts-node/register tests/**/*.test.ts"
   },
   "author": "Hylke Stapersma",
   "license": "ISC",

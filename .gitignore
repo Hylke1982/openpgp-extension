@@ -9,4 +9,4 @@ build/
 
 tests/*.js
 tests/*.log
-
+tests/stubs/*.asc

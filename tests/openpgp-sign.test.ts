@@ -23,7 +23,6 @@ describe('Sample task tests', function () {
     });
 
     it('Sign file',(done) =>{
-        process.env.TASK_TEST_TRACE = '1'
         let tr: ttm.MockTestRunner = createMockTestRunner('sign-file.js');
         tr.run();
         assert.strictEqual(tr.succeeded,true, 'Signing of file should succeed.');
@@ -31,11 +30,20 @@ describe('Sample task tests', function () {
     });
 
     it('Sign file invalid password',(done) =>{
-        process.env.TASK_TEST_TRACE = '1'
         let tr: ttm.MockTestRunner = createMockTestRunner('sign-file-invalidpassword.js');
         tr.run();
         assert.strictEqual(tr.succeeded,false, 'Signing of file should succeed.');
         assert(tr.stdout.search('Private key cannot be decrypted') > 0, `Missing invalid passphrase error`);
+        done();
+    });
+
+    it('File to sign not found',(done) =>{
+        process.env.TASK_TEST_TRACE = '1'
+        let tr: ttm.MockTestRunner = createMockTestRunner('file-to-sign-not-found.js');
+        tr.run();
+        assert.strictEqual(tr.succeeded,false, 'Signing of file should fail');
+        assert(tr.stdout.search('File to sign cannot be found') > 0, `File to sign cannot found error faild`);
+
         done();
     });
 
