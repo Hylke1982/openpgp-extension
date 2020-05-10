@@ -8,6 +8,6 @@ let tmr: ttm.TaskMockRunner = new ttm.TaskMockRunner(tp);
 // Set variables
 tmr.setVariableName('System.DefaultWorkingDirectory', __dirname);
 
-tmr.setInput('signingFile','signing-file.key')
+tmr.setInput('passPhrase','passphrase')
 tmr.setInput('filePath','file-to-sign.txt')
 tmr.run();
