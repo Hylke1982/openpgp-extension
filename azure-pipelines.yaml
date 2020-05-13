@@ -29,7 +29,7 @@ stages:
 
   - stage: Package
     jobs:
-      - job: Test
+      - job: Package
         steps:
           - task: NodeTool@0
             inputs:
@@ -54,3 +54,33 @@ stages:
             inputs:
               targetPath: '$(Build.SourcesDirectory)/openpgp-tasks.vsix'
               artifactName: package
+
+
+  - stage: Deploy
+    jobs:
+      - job: Deploy
+        variables:
+          - group: publish-token-dev
+        steps:
+
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              artifact: 'package'
+              path: $(Build.SourcesDirectory)/package
+            displayName: 'Download package'
+
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '10.x'
+            displayName: 'Install Node.js'
+
+          - script: |
+              npm i -g tfx-cli
+            displayName: 'Install tools'
+
+          - script: |
+              tfx login -u $(System.CollectionUri) -t $TOKEN
+              tfx extension publish --vsix package/openpgp-tasks.vsix --manifest-globs azure-devops-extension.json --share-with hylkestapersma
+            displayName: 'Install tools'
+            env:
+              TOKEN: $(publish.token)
