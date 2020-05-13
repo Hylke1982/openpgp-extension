@@ -3,7 +3,7 @@ import * as ttm from "azure-pipelines-task-lib/mock-run";
 import ma = require('azure-pipelines-task-lib/mock-answer');
 
 
-let tp = path.join(__dirname, '../build/openpgp-sign-build-task', 'index.js');
+let tp = path.join(__dirname, '../build/GPGSignV0', 'index.js');
 let tmr: ttm.TaskMockRunner = new ttm.TaskMockRunner(tp);
 
 process.env["SYSTEM_DEFAULTWORKINGDIRECTORY"] = __dirname;

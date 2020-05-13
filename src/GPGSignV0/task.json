@@ -3,13 +3,13 @@
     "id": "aa06f72d-2af3-4b51-bda9-7649ce73daee",
     "name": "openpgp-sign-task",
     "friendlyName": "OpenPGP sign build task",
-    "description": "Create an OpenPGP file signature ",
+    "description": "Sign a file with GPG",
     "helpMarkDown": "",
     "category": "Utility",
     "author": "Hylke Stapersma",
     "version": {
         "Major": 0,
-        "Minor": 1,
+        "Minor": 2,
         "Patch": 0
     },
     "instanceNameFormat": "Echo $(samplestring)",
@@ -20,7 +20,7 @@
             "label": "Signing key pass phrase",
             "defaultValue": "",
             "required": true,
-            "helpMarkDown": "A sample string"
+            "helpMarkDown": "The pass phrase for the GPG key"
         },
         {
             "name": "fileToSign",
@@ -28,7 +28,7 @@
             "label": "File to sign",
             "defaultValue": "",
             "required": true,
-            "helpMarkDown": "A sample string"
+            "helpMarkDown": "Path to the file to sign"
         },
         {
             "name": "signingFile",
@@ -36,7 +36,15 @@
             "label": "File used for signing",
             "defaultValue": "",
             "required": true,
-            "helpMarkDown": "A sample string"
+            "helpMarkDown": "Reference to the private key"
+        },
+        {
+            "name": "cwd",
+            "type": "filePath",
+            "label": "Working directory",
+            "defaultValue": "",
+            "required": false,
+            "helpMarkDown": "The (optional) path for the working directory. If not set the variable System.DefaultWorkingDirectory is used"
         }
     ],
     "execution": {

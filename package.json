@@ -4,7 +4,12 @@
   "description": "openpgp extension for Azure DevOps",
   "main": "index.js",
   "scripts": {
-    "compile": "tsc && tsc tests/*.ts",
+    "clean": "rm -rf build/*",
+    "compile": "npm run clean && tsc && tsc tests/*.ts",
+    "copy:assets": "cpx 'src/**/*.{json,png}' 'build'",
+    "copy:assets-production": "npm prune --production=true && cpx 'node_modules/**/*' 'build/GPGSignV0/node_modules'",
+    "build": "npm run compile && npm run copy:assets",
+    "build:production": "npm run build && npm run copy:assets-production && tfx extension create --manifest-globs azure-devops-extension.json",
     "test": "npm run compile && mocha -r ts-node/register tests/**/*.test.ts"
   },
   "author": "Hylke Stapersma",

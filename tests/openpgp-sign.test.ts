@@ -8,7 +8,7 @@ describe('Sample task tests', function () {
         //process.env.TASK_TEST_TRACE = '1'
     })
 
-    const taskJsonPath = path.join(__dirname, '../src/openpgp-sign-build-task', 'task.json');
+    const taskJsonPath = path.join(__dirname, '../src/GPGSignV0', 'task.json');
 
     it('Sign with missing pass phrase', (done) => {
         missingInput('missing-passphrase.js', 'passPhrase', done);

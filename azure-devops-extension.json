@@ -1,0 +1,36 @@
+{
+  "manifestVersion": 1,
+  "id": "openpgp-task",
+  "name": "OpenPGP build tasks",
+  "version": "0.2.0",
+  "publisher": "HylkeStapersma",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Tools for openpgp tasks",
+  "categories": [
+    "Azure Pipelines"
+  ],
+  "icons": {
+    "default": "images/extension-icon.png"
+  },
+  "files": [
+    {
+      "path": "build/GPGSignV0"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "GPGSignV0",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "build/GPGSignV0"
+      }
+    }
+  ]
+}
