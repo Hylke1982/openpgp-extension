@@ -79,7 +79,7 @@ stages:
             displayName: 'Install tools'
 
           - script: |
-              tfx login -u $(System.CollectionUri) -t $TOKEN
+              tfx login -u https://dev.azure.com/hylkestapersma -t $TOKEN
               tfx extension publish --vsix package/openpgp-tasks.vsix --manifest-globs azure-devops-extension.json --share-with hylkestapersma
             displayName: 'Install tools'
             env:
