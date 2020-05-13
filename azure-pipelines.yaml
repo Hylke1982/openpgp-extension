@@ -19,6 +19,12 @@ stages:
               npm i -g typescript
               npm i -g tfx-cli
               npm i -g cpx
+            displayName: 'Install tools'
+
+          - script: |
               npm install
-              npx run tests
+            displayName: 'NPM install dependencies'
+
+          - script: |
+              npm run tests
             displayName: 'NPM run test'
