@@ -52,5 +52,5 @@ stages:
 
           - task: PublishPipelineArtifact@1
             inputs:
-              targetPath: '$(Pipeline.Workspace)/openpgp-tasks.vsix'
+              targetPath: '$(Build.SourcesDirectory)/openpgp-tasks.vsix'
               artifactName: package
