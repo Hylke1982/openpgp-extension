@@ -16,7 +16,9 @@ stages:
             displayName: 'Install Node.js'
 
           - script: |
-              npm install -g cpx
+              npm i -g typescript
+              npm i -g tfx-cli
+              npm i -g cpx
               npm install
               npx run tests
             displayName: 'NPM run test'

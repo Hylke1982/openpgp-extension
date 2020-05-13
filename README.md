@@ -7,7 +7,9 @@ An Azure DevOps extension to
 Install the following dependencies globally:
 
 ```
-npm install -g cpx
-npm install -g tfx
-npm install -g tfx-cli
+npm i -g typescript
+npm i -g tfx-cli
+npm i -g cpx
+npm i -g tfx
+npm i -g tfx-cli
 ```
