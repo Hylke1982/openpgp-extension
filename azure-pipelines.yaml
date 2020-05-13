@@ -17,8 +17,6 @@ stages:
 
           - script: |
               npm i -g typescript
-              npm i -g tfx-cli
-              npm i -g cpx
             displayName: 'Install tools'
 
           - script: |
@@ -28,3 +26,31 @@ stages:
           - script: |
               npm run test
             displayName: 'NPM run test'
+
+  - stage: Package
+    jobs:
+      - job: Test
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '10.x'
+            displayName: 'Install Node.js'
+
+          - script: |
+              npm i -g typescript
+              npm i -g tfx-cli
+              npm i -g cpx
+            displayName: 'Install tools'
+
+          - script: |
+              npm install
+            displayName: 'NPM install dependencies'
+
+          - script: |
+              npm run build:production
+            displayName: 'Build production package'
+
+          - task: PublishPipelineArtifact@1
+            inputs:
+              targetPath: '$(Pipeline.Workspace)/openpgp-tasks.vsix'
+              artifactName: package

@@ -9,7 +9,7 @@
     "copy:assets": "cpx 'src/**/*.{json,png}' 'build'",
     "copy:assets-production": "npm prune --production=true && cpx 'node_modules/**/*' 'build/GPGSignV0/node_modules'",
     "build": "npm run compile && npm run copy:assets",
-    "build:production": "npm run build && npm run copy:assets-production && tfx extension create --manifest-globs azure-devops-extension.json",
+    "build:production": "npm run build && npm run copy:assets-production && tfx extension create --manifest-globs azure-devops-extension.json --output-path openpgp-tasks.vsix",
     "test": "npm run compile && mocha -r ts-node/register tests/**/*.test.ts"
   },
   "author": "Hylke Stapersma",
