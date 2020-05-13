@@ -26,5 +26,5 @@ stages:
             displayName: 'NPM install dependencies'
 
           - script: |
-              npm run tests
+              npm run test
             displayName: 'NPM run test'
