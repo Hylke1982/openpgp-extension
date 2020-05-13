@@ -6,17 +6,17 @@ pool:
 
 
 stages:
-  stage: Test
-  jobs:
-    - job: Test
-      steps:
-        - task: NodeTool@0
-          inputs:
-            versionSpec: '10.x'
-          displayName: 'Install Node.js'
+  - stage: Test
+    jobs:
+      - job: Test
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '10.x'
+            displayName: 'Install Node.js'
 
-        - script: |
-            npm install -g cpx
-            npm install
-            npx run tests
-          displayName: 'NPM run test'
+          - script: |
+              npm install -g cpx
+              npm install
+              npx run tests
+            displayName: 'NPM run test'
