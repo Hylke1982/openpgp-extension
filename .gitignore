@@ -9,6 +9,6 @@ build/
 
 tests/*.js
 tests/*.log
-tests/stubs/*.asc
+stubs/*.asc
 
 *.vsix

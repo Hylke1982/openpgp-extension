@@ -30,6 +30,14 @@ describe('Sample task tests', function () {
         done();
     });
 
+    it('Sign file with CWD set', (done) => {
+        process.env.TASK_TEST_TRACE = '1'
+        let tr: ttm.MockTestRunner = createMockTestRunner('sign-file-with-cwd.js');
+        tr.run();
+        assert.strictEqual(tr.succeeded, true, 'Signing of file should succeed.');
+        done();
+    });
+
     it('Sign file invalid password', (done) => {
         let tr: ttm.MockTestRunner = createMockTestRunner('sign-file-invalidpassword.js');
         tr.run();

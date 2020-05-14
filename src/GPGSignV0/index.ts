@@ -66,7 +66,7 @@ async function run() {
         console.log(`cwd is: ${cwd}`);
         const privateKey = await getPrivateKey(inputSigningFile, inputPassPhrase);
 
-        let fileToSignPath = path.join('/', cwd!, inputFileToSign!);
+        let fileToSignPath = path.join(inputFileToSign!);
         console.log(`File to sign path is ${fileToSignPath}`)
         let fileToSignExists = await fs.exists(fileToSignPath);
         if (fileToSignExists) {

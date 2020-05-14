@@ -53,7 +53,7 @@ var SecureFileHelpers = /** @class */ (function () {
             var stub;
             return __generator(this, function (_a) {
                 tl.debug('Mock downloadSecureFile with id = ' + secureFileId);
-                stub = path.join(__dirname, '../stubs', secureFileId);
+                stub = path.join(__dirname, '../../stubs', secureFileId);
                 return [2 /*return*/, stub];
             });
         });

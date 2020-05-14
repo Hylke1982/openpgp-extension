@@ -12,6 +12,7 @@ process.env["SYSTEM_DEFAULTWORKINGDIRECTORY"] = path.join(__dirname, '..');
 tmr.setInput('passPhrase', 'Test001!')
 tmr.setInput('signingFile', 'SignTestKey.pgp')
 tmr.setInput('fileToSign', 'stubs/file-to-sign.txt')
+tmr.setInput('cwd', path.join(__dirname, '..'))
 
 // Import Secure file helper mock
 import * as SecureFileHelpers from "./securefiles-common/securefiles-common-mock";

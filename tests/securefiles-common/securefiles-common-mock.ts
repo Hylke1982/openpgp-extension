@@ -15,7 +15,7 @@ export class SecureFileHelpers {
 
     async downloadSecureFile(secureFileId: string) {
         tl.debug('Mock downloadSecureFile with id = ' + secureFileId);
-        let stub = path.join(__dirname, '../stubs', secureFileId);
+        let stub = path.join(__dirname, '../../stubs', secureFileId);
         return stub;
     }
 
