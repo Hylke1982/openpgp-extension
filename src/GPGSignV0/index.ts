@@ -50,7 +50,6 @@ async function signFile(fileToSignPath: string, privateKey: KeyResult) {
  */
 function stepIntoWorkingDirectory() {
     let cwd = tl.getInput('cwd') || tl.getVariable('System.DefaultWorkingDirectory');
-    tl.cd(cwd!);
     return cwd;
 }
 
@@ -63,6 +62,8 @@ async function run() {
         console.log(`Passphrase is ${inputPassPhrase}`)
 
         let cwd = stepIntoWorkingDirectory();
+
+        console.log(`cwd is: ${cwd}`);
         const privateKey = await getPrivateKey(inputSigningFile, inputPassPhrase);
 
         let fileToSignPath = path.join(cwd!, inputFileToSign!);
