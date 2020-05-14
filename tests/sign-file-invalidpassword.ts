@@ -11,7 +11,7 @@ process.env["SYSTEM_DEFAULTWORKINGDIRECTORY"] = __dirname;
 // Set input
 tmr.setInput('passPhrase', 'INVALID')
 tmr.setInput('signingFile', 'SignTestKey.pgp')
-tmr.setInput('filePath', 'stubs/file-to-sign.txt')
+tmr.setInput('fileToSign', 'stubs/file-to-sign.txt')
 
 // Mock anwsers
 let a: ma.TaskLibAnswers = <ma.TaskLibAnswers>{

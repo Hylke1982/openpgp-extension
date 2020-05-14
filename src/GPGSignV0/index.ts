@@ -57,17 +57,17 @@ function stepIntoWorkingDirectory() {
 async function run() {
     try {
         const inputPassPhrase: string | undefined = tl.getInput('passPhrase', true);
-        const inputFilePath: string | undefined = tl.getPathInput('filePath', true);
+        const inputFileToSign: string | undefined = tl.getPathInput('fileToSign', true);
         const inputSigningFile: string | undefined = tl.getInput('signingFile', true);
 
         let cwd = stepIntoWorkingDirectory();
         const privateKey = await getPrivateKey(inputSigningFile, inputPassPhrase);
 
-        let fileToSignPath = path.join(cwd!, inputFilePath!);
+        let fileToSignPath = path.join(cwd!, inputFileToSign!);
         let fileToSignExists = await fs.exists(fileToSignPath);
         if (fileToSignExists) {
             const signed = await signFile(fileToSignPath, privateKey);
-            let fileToSignSignaturePath = path.join(cwd!, `${inputFilePath}.asc`);
+            let fileToSignSignaturePath = path.join(cwd!, `${inputFileToSign}.asc`);
             await fs.writeTextFile(fileToSignSignaturePath, signed.signature, 'utf8');
         } else {
             tl.setResult(tl.TaskResult.Failed, 'File to sign cannot be found', true);

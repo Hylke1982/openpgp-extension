@@ -16,6 +16,8 @@
   "license": "ISC",
   "dependencies": {
     "@types/openpgp": "^4.4.10",
+    "@types/node": "^13.13.5",
+    "@types/q": "^1.5.2",
     "async-file": "^2.0.2",
     "azure-devops-node-api": "^10.1.1",
     "azure-pipelines-task-lib": "^2.9.3",
@@ -24,8 +26,6 @@
   "devDependencies": {
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^13.13.5",
-    "@types/q": "^1.5.2",
     "chai": "^4.2.0",
     "i": "^0.3.6",
     "mocha": "^7.1.2",

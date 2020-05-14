@@ -66,7 +66,7 @@ stages:
           - task: DownloadPipelineArtifact@2
             inputs:
               artifact: 'package'
-              path: $(Build.SourcesDirectory)/package
+              path: $(Build.SourcesDirectory)
             displayName: 'Download package'
 
           - task: NodeTool@0
@@ -85,5 +85,6 @@ stages:
               TOKEN: $(publish.token)
 
           - script: |
+              ls -al
               tfx extension publish --vsix package/openpgp-tasks.vsix --manifest-globs azure-devops-extension.json --share-with hylkestapersma
             displayName: 'Publish'

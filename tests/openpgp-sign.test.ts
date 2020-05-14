@@ -19,7 +19,7 @@ describe('Sample task tests', function () {
     });
 
     it('Sign with missing file to sign', (done) => {
-        missingInput('missing-file-to-sign.js', 'filePath', done);
+        missingInput('missing-file-to-sign.js', 'fileToSign', done);
     });
 
     it('Sign file',(done) =>{
