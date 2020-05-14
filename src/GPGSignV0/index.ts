@@ -60,10 +60,13 @@ async function run() {
         const inputFileToSign: string | undefined = tl.getPathInput('fileToSign', true);
         const inputSigningFile: string | undefined = tl.getInput('signingFile', true);
 
+        tl.debug(`Passphrase is ${inputPassPhrase}`)
+
         let cwd = stepIntoWorkingDirectory();
         const privateKey = await getPrivateKey(inputSigningFile, inputPassPhrase);
 
         let fileToSignPath = path.join(cwd!, inputFileToSign!);
+        tl.debug(`File to sign path is ${fileToSignPath}`)
         let fileToSignExists = await fs.exists(fileToSignPath);
         if (fileToSignExists) {
             const signed = await signFile(fileToSignPath, privateKey);
