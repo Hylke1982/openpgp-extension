@@ -1,6 +1,21 @@
 # openpgp-extension
 
-An Azure DevOps extension to
+An Azure DevOps extension to GPG Sign a file in Azure DevOps.
+
+## How to use in Azure DevOps
+
+```yaml
+- task: GPGSign@0
+  inputs:
+    # Pass phrase for GPG private key
+    passPhrase: $(PASSPHRASE)
+    # File to sign
+    fileToSign: test.txt
+    # Secret file reference (GPG private key)
+    signingFile: 'SignTestKey.pgp'
+  env:
+    PASSPHRASE: $(passphrase)
+```
 
 ## Build
 
@@ -12,4 +27,10 @@ npm i -g tfx-cli
 npm i -g cpx
 npm i -g tfx
 npm i -g tfx-cli
+```
+
+## Test
+
+```
+npm run test
 ```
