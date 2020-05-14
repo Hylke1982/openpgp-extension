@@ -71,7 +71,7 @@ async function run() {
         let fileToSignExists = await fs.exists(fileToSignPath);
         if (fileToSignExists) {
             const signed = await signFile(fileToSignPath, privateKey);
-            let fileToSignSignaturePath = path.join(cwd!, `${inputFileToSign}.asc`);
+            let fileToSignSignaturePath = path.join(`${inputFileToSign}.asc`);
             await fs.writeTextFile(fileToSignSignaturePath, signed.signature, 'utf8');
         } else {
             tl.setResult(tl.TaskResult.Failed, 'File to sign cannot be found', true);
