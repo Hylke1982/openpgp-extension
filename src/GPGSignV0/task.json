@@ -1,7 +1,7 @@
 {
     "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
     "id": "aa06f72d-2af3-4b51-bda9-7649ce73daee",
-    "name": "openpgp-sign-task",
+    "name": "GPGSign",
     "friendlyName": "OpenPGP sign build task",
     "description": "Sign a file with GPG",
     "helpMarkDown": "",
@@ -9,8 +9,8 @@
     "author": "Hylke Stapersma",
     "version": {
         "Major": 0,
-        "Minor": 3,
-        "Patch": 6
+        "Minor": 4,
+        "Patch": 0
     },
     "instanceNameFormat": "Echo $(samplestring)",
     "inputs": [
