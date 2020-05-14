@@ -86,5 +86,7 @@ stages:
 
           - script: |
               ls -al
-              tfx extension publish --vsix openpgp-tasks.vsix --manifest-globs azure-devops-extension.json --share-with hylkestapersma
+              tfx extension publish -t $TOKEN --vsix openpgp-tasks.vsix --manifest-globs azure-devops-extension.json --share-with hylkestapersma
             displayName: 'Publish'
+            env:
+              TOKEN: $(publish.token)
