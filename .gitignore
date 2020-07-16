@@ -12,3 +12,6 @@ tests/*.log
 stubs/*.asc
 
 *.vsix
+
+.DS_Store
+.eslintrc.js

@@ -4,6 +4,7 @@
   "description": "openpgp extension for Azure DevOps",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint src/**",
     "clean": "rm -rf build/*",
     "compile": "npm run clean && tsc && tsc tests/*.ts",
     "copy:assets": "cpx 'src/**/*.{json,png}' 'build'",
@@ -15,23 +16,27 @@
   "author": "Hylke Stapersma",
   "license": "ISC",
   "dependencies": {
-    "@types/openpgp": "^4.4.10",
-    "@types/node": "^13.13.5",
-    "@types/q": "^1.5.2",
+    "@types/node": "^13.13.14",
+    "@types/openpgp": "^4.4.12",
+    "@types/q": "^1.5.4",
     "async-file": "^2.0.2",
     "azure-devops-node-api": "^10.1.1",
-    "azure-pipelines-task-lib": "^2.9.3",
-    "openpgp": "^4.10.4"
+    "azure-pipelines-task-lib": "^2.9.6",
+    "openpgp": "^4.10.6"
   },
   "devDependencies": {
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
+    "@typescript-eslint/eslint-plugin": "^2.34.0",
+    "@typescript-eslint/parser": "^2.34.0",
     "chai": "^4.2.0",
+    "eslint": "^7.4.0",
     "i": "^0.3.6",
-    "mocha": "^7.1.2",
-    "nyc": "^15.0.1",
+    "mocha": "^7.2.0",
+    "nyc": "^15.1.0",
     "sync-request": "^6.1.0",
-    "ts-node": "^8.10.1",
-    "typescript": "^3.8.3"
+    "ts-node": "^8.10.2",
+    "tslint": "^6.1.2",
+    "typescript": "^3.9.6"
   }
 }

@@ -20,12 +20,12 @@ export class SecureFileHelpers {
         const proxy = tl.getHttpProxyConfiguration();
         let options: IRequestOptions = {
             allowRetries: true,
-            maxRetries
+            maxRetries: retryCount
         };
 
         if (proxy) {
             options = { ...options, proxy, ignoreSslError: true };
-        };
+        }
 
         this.serverConnection = new WebApi(serverUrl!, authHandler, options);
     }

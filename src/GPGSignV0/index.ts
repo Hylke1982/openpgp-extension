@@ -4,11 +4,9 @@ import * as path from 'path';
 import * as openpgp from 'openpgp';
 import {SecureFileHelpers} from './securefiles-common/securefiles-common';
 import {TaskResult} from "azure-pipelines-task-lib";
-import {key} from "openpgp";
-import KeyResult = key.KeyResult;
 
 /**
- * Read the private key
+ * Read the private key from a secure file
  *
  * @param inputSigningFile
  * @param inputPassPhrase
@@ -20,6 +18,7 @@ async function getPrivateKey(inputSigningFile: string | undefined, inputPassPhra
 
     try {
         let decryptSuccess = await privateKey.keys[0].decrypt(inputPassPhrase!);
+        tl.debug(`Decrypt success $decryptSuccess` );
     } catch (Error) {
         tl.setResult(TaskResult.Failed, 'Private key cannot be decrypted');
     }
@@ -32,7 +31,7 @@ async function getPrivateKey(inputSigningFile: string | undefined, inputPassPhra
  * @param fileToSignPath
  * @param privateKey
  */
-async function signFile(fileToSignPath: string, privateKey: KeyResult) {
+async function signFile(fileToSignPath: string, privateKey: openpgp.key.KeyResult) {
     let data = await fs.readFile(fileToSignPath, {encoding: 'utf8', flag: 'r'});
 
     const signOptions: openpgp.SignOptions = {
@@ -59,15 +58,15 @@ async function run() {
         const inputFileToSign: string | undefined = tl.getPathInput('fileToSign', true);
         const inputSigningFile: string | undefined = tl.getInput('signingFile', true);
 
-        console.log(`Passphrase is ${inputPassPhrase}`)
+        tl.debug(`Passphrase is ${inputPassPhrase}`)
 
         let cwd = stepIntoWorkingDirectory();
 
-        console.log(`cwd is: ${cwd}`);
+        tl.debug(`cwd is: ${cwd}`);
         const privateKey = await getPrivateKey(inputSigningFile, inputPassPhrase);
 
         let fileToSignPath = path.join(inputFileToSign!);
-        console.log(`File to sign path is ${fileToSignPath}`)
+        tl.debug(`File to sign path is ${fileToSignPath}`)
         let fileToSignExists = await fs.exists(fileToSignPath);
         if (fileToSignExists) {
             const signed = await signFile(fileToSignPath, privateKey);
@@ -82,4 +81,7 @@ async function run() {
     }
 }
 
+
+// Run
 run();
+

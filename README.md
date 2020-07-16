@@ -4,6 +4,10 @@ An Azure DevOps extension to GPG Sign a file in Azure DevOps.
 
 ## How to use in Azure DevOps
 
+Usage within Azure DevOps
+
+### Sign a file
+
 ```yaml
 - task: GPGSign@0
   inputs:
@@ -13,9 +17,12 @@ An Azure DevOps extension to GPG Sign a file in Azure DevOps.
     fileToSign: test.txt
     # Secret file reference (GPG private key)
     signingFile: 'SignTestKey.pgp'
+    # Change working directory
+    # cwd: /path/to/working/directory
   env:
     PASSPHRASE: $(passphrase)
 ```
+A file on the same location with suffix `.asc` is created after signing.
 
 ## Build
 
