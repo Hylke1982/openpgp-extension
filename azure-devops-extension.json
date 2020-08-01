@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "openpgp-task",
   "name": "OpenPGP build tasks",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "publisher": "HylkeStapersma",
   "targets": [
     {
