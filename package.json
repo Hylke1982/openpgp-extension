@@ -16,21 +16,21 @@
   "author": "Hylke Stapersma",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^13.13.15",
-    "@types/openpgp": "^4.4.12",
+    "@types/node": "^13.13.25",
+    "@types/openpgp": "^4.4.14",
     "@types/q": "^1.5.4",
     "async-file": "^2.0.2",
     "azure-devops-node-api": "^10.1.1",
-    "azure-pipelines-task-lib": "^2.10.0",
-    "openpgp": "^4.10.7"
+    "azure-pipelines-task-lib": "^2.11.1",
+    "openpgp": "^4.10.8"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.12",
+    "@types/chai": "^4.2.13",
     "@types/mocha": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "chai": "^4.2.0",
-    "eslint": "^7.6.0",
+    "eslint": "^7.10.0",
     "i": "^0.3.6",
     "mocha": "^7.2.0",
     "nyc": "^15.1.0",
